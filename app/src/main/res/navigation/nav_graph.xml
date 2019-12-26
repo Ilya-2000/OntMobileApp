@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFragment">
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.ontmobileapp.fragments.NewsFragment"
+        android:label="news_fragment"
+        tools:layout="@layout/news_fragment" />
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.ontmobileapp.fragments.ScheduleFragment"
+        android:label="schedule_fragment"
+        tools:layout="@layout/schedule_fragment" />
+    <fragment
+        android:id="@+id/collegeFragment"
+        android:name="com.example.ontmobileapp.fragments.CollegeFragment"
+        android:label="college_fragment"
+        tools:layout="@layout/college_fragment" />
+</navigation>
