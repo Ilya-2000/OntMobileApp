@@ -6,10 +6,10 @@
     tools:context=".fragments.NewsFragment"
     android:background="#DEDEDE">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/news_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="News" />
+        android:layout_height="wrap_content"
+        />
 
 </FrameLayout>
