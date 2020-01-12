@@ -13,8 +13,12 @@ import com.squareup.picasso.Picasso
 
 class NewsListViewAdapter(private val context: Context,
                           private val news: MutableList<News>): BaseAdapter() {
+
+
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+
     override fun getView(position: Int, view: View?, parent: ViewGroup?): View {
         val rowView = inflater.inflate(R.layout.news_item, parent, false)
 
@@ -24,7 +28,6 @@ class NewsListViewAdapter(private val context: Context,
 
         Picasso.get()
             .load(news.image)
-            .error(R.drawable.ic_launcher_foreground)
             .into(img)
 
         title.text = news.title

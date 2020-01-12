@@ -25,7 +25,7 @@ class HttpGetNews: AsyncTask<Void, Void, MutableList<News>>() {
                         val newsTitle = newsData.get(i).select("h2[itemprop=name]").text()
                         val imgNews = "http://nt-orsk.ru/" + newsData.get(i).select("img").attr("src").toString()
                         val linkNews = "http://nt-orsk.ru/" + newsData.get(i).select("a[itemprop=url]").attr("href").toString()
-                        list.add(News(newsTitle, imgNews, linkNews))
+                        list.add(News(newsTitle,imgNews, linkNews))
                     }
                 } else {
                     title = "Error"
