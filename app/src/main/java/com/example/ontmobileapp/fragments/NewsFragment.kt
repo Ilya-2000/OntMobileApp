@@ -21,7 +21,7 @@ import java.lang.Exception
 /**
  * A simple [Fragment] subclass.
  */
-class NewsFragment : ListFragment() {
+class NewsFragment : Fragment() {
     private var listNews = mutableListOf<News>()
 
 
@@ -29,11 +29,13 @@ class NewsFragment : ListFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_news, container, false)
-        //val listView: ListView = view.findViewById(R.id.news_lv)
+        val root = inflater.inflate(R.layout.fragment_news, container, false)
+        val listView: ListView = root.findViewById(R.id.lv)
         val httpGetNews = HttpGetNews()
         httpGetNews.execute()
         listNews = httpGetNews.get()
+        val adapter = NewsListViewAdapter(activity!!, listNews)
+        listView.adapter = adapter
 
         //val adapter = NewsListViewAdapter(activity!!,listNews)
         //listView.adapter = adapter
@@ -47,14 +49,14 @@ class NewsFragment : ListFragment() {
 
 
 
-        return view
+        return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-            val adapter = NewsListViewAdapter(activity!!, listNews)
-            listAdapter = adapter
+
+
 
 
 
