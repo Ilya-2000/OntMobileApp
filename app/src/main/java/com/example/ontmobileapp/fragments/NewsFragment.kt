@@ -1,6 +1,7 @@
 package com.example.ontmobileapp.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,45 +26,32 @@ class NewsFragment : Fragment() {
     private var listNews = mutableListOf<News>()
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val listView: ListView = root.findViewById(R.id.lv)
+        var urlNews : String
+        var headerNews: String
         val httpGetNews = HttpGetNews()
         httpGetNews.execute()
         listNews = httpGetNews.get()
         val adapter = NewsListViewAdapter(activity!!, listNews)
         listView.adapter = adapter
+        listView.setOnItemClickListener { adapterView, view, posititon, id ->
 
-        //val adapter = NewsListViewAdapter(activity!!,listNews)
-        //listView.adapter = adapter
-
-       /* Thread(Runnable {
-            activity?.runOnUiThread {
-                listView.adapter = adapter
-            }
-        }).start()*/
-
-
-
+        }
 
         return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
-
-
-
-
-
-
-
     }
+
+
 
 
 }
