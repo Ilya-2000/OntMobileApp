@@ -6,22 +6,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
+import android.widget.ImageView
+import android.widget.TextView
 
 import com.example.ontmobileapp.R
 
 /**
  * A simple [Fragment] subclass.
  */
-class CollegeFragment : Fragment() {
+class OpenNewsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_college, container, false)
-        val webView = view.findViewById<WebView>(R.id.callback_web_view)
-        webView.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLSe9cjxh_IwyNmZn4SMA2r8Oe1gjrlDXiFYYOLlOetlchT6XWg/viewform")
+        val view = inflater.inflate(R.layout.fragment_open_news, container, false)
+        val headerText = view.findViewById<TextView>(R.id.header_open_news)
+        val descriptionText = view.findViewById<TextView>(R.id.description_open_news)
+        val imageNews = view.findViewById<ImageView>(R.id.image_open_news)
+
         return view
     }
 
