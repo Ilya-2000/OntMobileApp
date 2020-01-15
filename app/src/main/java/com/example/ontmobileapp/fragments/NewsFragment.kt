@@ -12,6 +12,9 @@ import android.widget.ListAdapter
 import android.widget.ListView
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.ListFragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.adapters.NewsListViewAdapter
@@ -40,7 +43,17 @@ class NewsFragment : Fragment() {
         listNews = httpGetNews.get()
         val adapter = NewsListViewAdapter(activity!!, listNews)
         listView.adapter = adapter
+        val navController = findNavController()
+
         listView.setOnItemClickListener { adapterView, view, posititon, id ->
+            navController.navigate(R.id.openNewsActivity)
+            val bundle = Bundle()
+            val fragment = NewsFragment()
+            bundle.putString("header",listNews.get(posititon).title)
+            bundle.putString("img",listNews.get(posititon).image)
+            bundle.putString("link",listNews.get(posititon).link)
+            
+
 
         }
 

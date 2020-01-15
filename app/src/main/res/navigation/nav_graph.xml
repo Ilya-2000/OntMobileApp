@@ -10,8 +10,8 @@
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_navigation_news_to_openNewsFragment"
-            app:destination="@id/openNewsFragment"
+            android:id="@+id/action_navigation_news_to_openNewsActivity"
+            app:destination="@id/openNewsActivity"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
@@ -25,9 +25,9 @@
         android:name="com.example.ontmobileapp.fragments.CollegeFragment"
         android:label="fragment_college"
         tools:layout="@layout/fragment_college" />
-    <fragment
-        android:id="@+id/openNewsFragment"
-        android:name="com.example.ontmobileapp.fragments.OpenNewsFragment"
-        android:label="fragment_open_news"
-        tools:layout="@layout/fragment_open_news" />
+    <activity
+        android:id="@+id/openNewsActivity"
+        android:name="com.example.ontmobileapp.OpenNewsActivity"
+        android:label="activity_open_news"
+        tools:layout="@layout/activity_open_news" />
 </navigation>

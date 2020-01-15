@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_news, R.id.navigation_schedule, R.id.navigation_college
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
