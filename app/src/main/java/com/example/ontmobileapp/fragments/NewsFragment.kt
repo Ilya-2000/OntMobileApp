@@ -19,6 +19,7 @@ import com.example.ontmobileapp.OpenNewsActivity
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.adapters.NewsListViewAdapter
+import com.example.ontmobileapp.models.Global
 import com.example.ontmobileapp.models.News
 import com.example.ontmobileapp.network.HttpGetNews
 import java.lang.Exception
@@ -47,15 +48,11 @@ class NewsFragment : Fragment() {
         val navController = findNavController()
 
         listView.setOnItemClickListener { adapterView, view, posititon, id ->
+            val global = Global
+            global.newsUrl = listNews.get(posititon).link
+            global.newsImg = listNews.get(posititon).image
+            global.newsTitle = listNews.get(posititon).title
             navController.navigate(R.id.openNewsActivity)
-            val bundle = Bundle()
-            val openNewsActivity = OpenNewsActivity()
-            bundle.putString("header",listNews.get(posititon).title)
-            bundle.putString("img",listNews.get(posititon).image)
-            bundle.putString("link",listNews.get(posititon).link)
-            
-
-
         }
 
         return root
