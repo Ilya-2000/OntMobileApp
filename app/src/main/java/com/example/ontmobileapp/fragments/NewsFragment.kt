@@ -53,6 +53,10 @@ class NewsFragment : Fragment() {
             global.newsImg = listNews.get(posititon).image
             global.newsTitle = listNews.get(posititon).title
             navController.navigate(R.id.openNewsActivity)
+
+            
+
+
         }
 
         return root
