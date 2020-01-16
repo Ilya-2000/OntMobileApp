@@ -25,4 +25,9 @@
         android:name="com.example.ontmobileapp.OpenNewsActivity"
         android:label="activity_open_news"
         tools:layout="@layout/activity_open_news" />
+    <activity
+        android:id="@+id/navigation_scheduleChangeActivity"
+        android:name="com.example.ontmobileapp.ScheduleChangeActivity"
+        android:label="activity_schedule_change"
+        tools:layout="@layout/activity_schedule_change" />
 </navigation>

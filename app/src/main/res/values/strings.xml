@@ -4,5 +4,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="tab_schedule_one">Расписание</string>
+    <string name="tab_schedule_two">Замены</string>
+
 
 </resources>
