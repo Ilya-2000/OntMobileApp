@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Spinner
 
 import com.example.ontmobileapp.R
 
@@ -18,8 +19,9 @@ class ChangeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_change, container, false)
+        val root = inflater.inflate(R.layout.fragment_change, container, false)
+        val groupSpinner = root.findViewById<Spinner>(R.id.group_select_change_spinner)
+        return root
     }
 
 
