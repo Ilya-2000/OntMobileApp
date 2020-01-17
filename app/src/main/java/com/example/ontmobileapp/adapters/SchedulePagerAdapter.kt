@@ -25,12 +25,12 @@ class SchedulePagerAdapter internal constructor(fragmentManager: FragmentManager
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        //val t: String?
-        /*when (position) {
+        var t: String? = null
+        when (position) {
             0 -> t = "Расписание"
             1 -> t = "Замены"
-        }*/
-        return titles.get(position).toString()
+        }
+        return t
     }
 
 
