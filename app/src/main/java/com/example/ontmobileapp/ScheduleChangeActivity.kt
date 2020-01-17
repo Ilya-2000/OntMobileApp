@@ -13,7 +13,7 @@ class ScheduleChangeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule_change)
         val viewPager = findViewById<ViewPager>(R.id.schedule_view_pager)
-        //val tabLayout = findViewById<TableLayout>(R.id.schedule_tabs)
+        
 
         if (viewPager != null) {
             val adapter = SchedulePagerAdapter(supportFragmentManager)
