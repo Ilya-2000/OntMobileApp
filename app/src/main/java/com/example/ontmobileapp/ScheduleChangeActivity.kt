@@ -21,9 +21,11 @@ class ScheduleChangeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_schedule_change)
         getGroup()
         Global.groupsGlobal = groups
-        
+
 
         val viewPager = findViewById<ViewPager>(R.id.schedule_view_pager)
+
+
         if (viewPager != null) {
             val adapter = SchedulePagerAdapter(supportFragmentManager)
             viewPager.adapter = adapter

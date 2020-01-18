@@ -27,6 +27,7 @@ class ChangeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_change, container, false)
         val groupSpinner = root.findViewById<Spinner>(R.id.group_select_change_spinner)
+
         return root
     }
 }
