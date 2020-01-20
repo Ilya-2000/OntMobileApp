@@ -9,10 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
 import androidx.annotation.RequiresApi
 
 import com.example.ontmobileapp.R
@@ -36,9 +33,15 @@ class ChangeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_change, container, false)
+        var cal: Calendar = Calendar.getInstance()
+        var year = cal.get(Calendar.YEAR)
+        var month = cal.get(Calendar.MONTH)
+        var day = cal.get(Calendar.DAY_OF_MONTH)
         val groupSpinner = root.findViewById<Spinner>(R.id.group_select_change_spinner)
-        val selDateBtn = root.findViewById<Button>(R.id.date_text)
-        val dateText = root.findViewById<EditText>(R.id.date_text)
+        val selDateBtn = root.findViewById<Button>(R.id.change_btn)
+        val dateText = root.findViewById<TextView>(R.id.date_text)
+        dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()
+        dateText.text = dateSelect
         val adapter =
             ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, groups)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -48,9 +51,11 @@ class ChangeFragment : Fragment() {
             var y = c.get(Calendar.YEAR)
             var m = c.get(Calendar.MONTH)
             var d = c.get(Calendar.DAY_OF_MONTH)
-            var datePickerDialog: DatePickerDialog = DatePickerDialog(activity!!,DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
-                dateSelect = (y + m + d).toString()
+            var datePickerDialog = DatePickerDialog(activity!!,DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
+                dateSelect = y.toString() + "-" + (m + 1).toString() + "-" + d.toString()
+                dateText.text = dateSelect
             }, y, m, d)
+            datePickerDialog.show()
 
         }
 
