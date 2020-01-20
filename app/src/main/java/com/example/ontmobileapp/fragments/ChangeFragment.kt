@@ -52,7 +52,7 @@ class ChangeFragment : Fragment() {
             var m = c.get(Calendar.MONTH)
             var d = c.get(Calendar.DAY_OF_MONTH)
             var datePickerDialog = DatePickerDialog(activity!!,DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
-                dateSelect = y.toString() + "-" + (m + 1).toString() + "-" + d.toString()
+                dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()
                 dateText.text = dateSelect
             }, y, m, d)
             datePickerDialog.show()
