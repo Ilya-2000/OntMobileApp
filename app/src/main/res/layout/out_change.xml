@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*">
+    <TableRow
+        android:id="@+id/tab_change_info"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/group_show_change_text"
+            android:text="Группа"
+            android:gravity="center_horizontal">
+        </TextView>
+
+        <TextView
+            android:id="@+id/date_show_change_text"
+            android:gravity="center_horizontal"
+            android:text="0000-00-00" >
+        </TextView>
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tab_name_row_info"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/discipline_row_show_change_text"
+            android:gravity="center_horizontal"
+            android:text="Предмет">
+        </TextView>
+
+        <TextView
+            android:id="@+id/cabinet_row_show_change_text"
+            android:gravity="center_horizontal"
+            android:text="Кабинет" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/subgroup_row_show_change_text"
+            android:gravity="center_horizontal"
+            android:text="Подгруппа" >
+        </TextView>
+
+    </TableRow>
+
+</TableLayout>
