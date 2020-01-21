@@ -13,6 +13,7 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 
 import com.example.ontmobileapp.R
+import com.example.ontmobileapp.models.Global
 import com.example.ontmobileapp.models.Group
 import com.example.ontmobileapp.network.HttpRequest
 import org.json.JSONArray
@@ -23,9 +24,10 @@ import java.util.*
 /**
  * A simple [Fragment] subclass.
  */
-class ChangeFragment : Fragment() {
+class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private var groups = mutableListOf<Group>()
     private var dateSelect: String? = null
+    private var groupSelect: String? = null
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
@@ -40,12 +42,15 @@ class ChangeFragment : Fragment() {
         val groupSpinner = root.findViewById<Spinner>(R.id.group_select_change_spinner)
         val selDateBtn = root.findViewById<Button>(R.id.change_btn)
         val dateText = root.findViewById<TextView>(R.id.date_text)
+        groups = Global.groupsGlobal
         dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()
         dateText.text = dateSelect
         val adapter =
             ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, groups)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         groupSpinner.adapter = adapter
+        groupSpinner.onItemSelectedListener = this
+
         selDateBtn.setOnClickListener {
             var c: Calendar = Calendar.getInstance()
             var y = c.get(Calendar.YEAR)
@@ -67,6 +72,15 @@ class ChangeFragment : Fragment() {
 
 
         return root
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        groupSelect = groups.get(position).name.toString()
+        Toast.makeText(activity, groupSelect, Toast.LENGTH_LONG).show()
     }
 }
 
