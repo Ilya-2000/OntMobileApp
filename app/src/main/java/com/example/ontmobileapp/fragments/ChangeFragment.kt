@@ -3,6 +3,7 @@ package com.example.ontmobileapp.fragments
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -42,6 +43,8 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val groupSpinner = root.findViewById<Spinner>(R.id.group_select_change_spinner)
         val selDateBtn = root.findViewById<Button>(R.id.change_btn)
         val dateText = root.findViewById<TextView>(R.id.date_text)
+        val showChangeBtn = root.findViewById<Button>(R.id.show_change_btn)
+
         groups = Global.groupsGlobal
         dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()
         dateText.text = dateSelect
@@ -50,6 +53,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         groupSpinner.adapter = adapter
         groupSpinner.onItemSelectedListener = this
+        groupSpinner.setSelection(Global.posGroup!!)
 
         selDateBtn.setOnClickListener {
             var c: Calendar = Calendar.getInstance()
@@ -68,6 +72,14 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
             var inflater: LayoutInflater = layoutInflater
             var view: View = inflater.inflate(R.layout.date_picker_show, null)
             builder.setView(view)*/
+
+        showChangeBtn.setOnClickListener {
+            val dialogView = LayoutInflater.from(activity).inflate(R.layout.out_change, null)
+            val builder = AlertDialog.Builder(activity)
+                .setView(dialogView)
+                .setTitle("Замены")
+            val alertDialog = builder.show()
+        }
 
 
 

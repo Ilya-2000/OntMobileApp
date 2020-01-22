@@ -10,6 +10,7 @@ class Global {
         var groupSelect: String? = null
         var dayOfTheWeekSelect: String? = null
         var groupsGlobal = mutableListOf<Group>()
+        var posGroup: Int? = null
 
 
     }
