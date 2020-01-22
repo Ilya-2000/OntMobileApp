@@ -14,9 +14,11 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 
 import com.example.ontmobileapp.R
+import com.example.ontmobileapp.models.Change
 import com.example.ontmobileapp.models.Global
 import com.example.ontmobileapp.models.Group
 import com.example.ontmobileapp.network.HttpRequest
+import kotlinx.android.synthetic.main.out_change.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
@@ -27,6 +29,7 @@ import java.util.*
  */
 class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private var groups = mutableListOf<Group>()
+    private var changes = mutableListOf<Change>()
     private var dateSelect: String? = null
     private var groupSelect: String? = null
 
@@ -74,10 +77,13 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
             builder.setView(view)*/
 
         showChangeBtn.setOnClickListener {
+            getChangesSchedule("http://api.ontvkr.ru/izmenenia/search.php?s=$dateSelect&p=$groupSelect")
             val dialogView = LayoutInflater.from(activity).inflate(R.layout.out_change, null)
             val builder = AlertDialog.Builder(activity)
                 .setView(dialogView)
                 .setTitle("Замены")
+            group_show_change_text?.text = groupSelect
+            date_show_change_text?.text = dateSelect
             val alertDialog = builder.show()
         }
 
@@ -93,6 +99,40 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         groupSelect = groups.get(position).name.toString()
         Toast.makeText(activity, groupSelect, Toast.LENGTH_LONG).show()
+    }
+
+    private fun getChangesSchedule(stringUrl: String) {
+        try {
+
+            val httpRequest = HttpRequest()
+            httpRequest.execute(stringUrl)
+            val result: String = httpRequest.get()
+            if(result != null) {
+                var jsonObject: JSONObject = JSONObject(result)
+                var jsonArray: JSONArray = jsonObject.getJSONArray("records")
+
+
+                var i = 0
+
+                while ( i < jsonArray.length()) {
+                    var jsonObject1: JSONObject = jsonArray.getJSONObject(i)
+                    var change = Change()
+                    change.id = jsonObject1.getString("id")
+                    change.cabinet = jsonObject1.getString("kabinet")
+                    change.date = jsonObject1.getString("data")
+                    change.reason = jsonObject1.getString("prichina")
+                    change.teacher = jsonObject1.getString("teacher_kto")
+                    change.group = jsonObject1.getString("gruppa")
+                    change.lessonNum = jsonObject1.getString("para")
+                    changes.add(change)
+
+                    i++
+                }
+
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

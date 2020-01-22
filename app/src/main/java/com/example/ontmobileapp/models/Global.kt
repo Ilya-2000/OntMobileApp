@@ -5,7 +5,7 @@ class Global {
         var newsUrl: String? = null
         var newsTitle: String? = null
         var newsImg: String? = null
-        //var changes = mutableListOf<ChangeShedule>()
+        var changes = mutableListOf<Change>()
         var dateSelect: String? = null
         var groupSelect: String? = null
         var dayOfTheWeekSelect: String? = null
