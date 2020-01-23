@@ -81,6 +81,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         showChangeBtn.setOnClickListener {
             getChangesSchedule("http://api.ontvkr.ru/izmenenia/search.php?s=$dateSelect&p=$groupSelect")
             getDialog(dateSelect!!,groupSelect!!)
+            var toast = Toast.makeText(activity!!,dateSelect + groupSelect, Toast.LENGTH_LONG).show()
         }
 
 
@@ -138,8 +139,30 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val height = ViewGroup.LayoutParams.MATCH_PARENT
         dialog.window!!.setLayout(width,height)
         dialog.window!!.attributes = layoutParams
-        group_show_change_text?.text = groupSelect
-        date_show_change_text?.text = dateSelect
+        ///////////////////////
+        val groupText = dialog.group_show_change_text
+        val dateText = dialog.date_show_change_text
+        val firstLesson = dialog.first_lesson_show_change_text
+        val secondLesson = dialog.two_lesson_show_change_text
+        val thrirdLesson = dialog.three_lesson_show_change_text
+        val fourLesson = dialog.four_lesson_show_change_text
+        val fiveLesson = dialog.five_lesson_show_change_text
+        val sixLesson = dialog.six_lesson_show_change_text
+        val sevenLesson = dialog.seven_lesson_show_change_text
+
+        val firstCabinet = dialog.first_cabinet_show_change_text
+        val secondCabinet = dialog.two_cabinet_show_change_text
+        val thrirdCabinet = dialog.three_cabinet_show_change_text
+        val fourCabinet = dialog.four_cabinet_show_change_text
+        val fiveCabinet = dialog.five_cabinet_show_change_text
+        val sixCabinet = dialog.six_cabinet_show_change_text
+        val sevenCabinet = dialog.seven_cabinet_show_change_text
+
+
+
+        //////////////////////////
+        groupText.text = group
+        dateText.text = date
         dialog.show()
     }
 }
