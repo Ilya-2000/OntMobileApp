@@ -3,6 +3,7 @@ package com.example.ontmobileapp.fragments
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 
@@ -78,13 +80,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         showChangeBtn.setOnClickListener {
             getChangesSchedule("http://api.ontvkr.ru/izmenenia/search.php?s=$dateSelect&p=$groupSelect")
-            val dialogView = LayoutInflater.from(activity).inflate(R.layout.out_change, null)
-            val builder = AlertDialog.Builder(activity)
-                .setView(dialogView)
-                .setTitle("Замены")
-            group_show_change_text?.text = groupSelect
-            date_show_change_text?.text = dateSelect
-            val alertDialog = builder.show()
+            getDialog(dateSelect!!,groupSelect!!)
         }
 
 
@@ -133,6 +129,18 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+    private fun getDialog(date: String, group: String) {
+        var dialog = Dialog(activity!!,R.style.MyTheme)
+        dialog.setContentView(R.layout.out_change)
+        var layoutParams: WindowManager.LayoutParams = dialog.window!!.attributes
+        val width = ViewGroup.LayoutParams.MATCH_PARENT
+        val height = ViewGroup.LayoutParams.MATCH_PARENT
+        dialog.window!!.setLayout(width,height)
+        dialog.window!!.attributes = layoutParams
+        group_show_change_text?.text = groupSelect
+        date_show_change_text?.text = dateSelect
+        dialog.show()
     }
 }
 
