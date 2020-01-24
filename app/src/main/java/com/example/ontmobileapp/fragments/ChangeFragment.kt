@@ -144,7 +144,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val dateText = dialog.date_show_change_text
         val firstLesson = dialog.first_lesson_show_change_text
         val secondLesson = dialog.two_lesson_show_change_text
-        val thrirdLesson = dialog.three_lesson_show_change_text
+        val thirdLesson = dialog.three_lesson_show_change_text
         val fourLesson = dialog.four_lesson_show_change_text
         val fiveLesson = dialog.five_lesson_show_change_text
         val sixLesson = dialog.six_lesson_show_change_text
@@ -152,17 +152,56 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         val firstCabinet = dialog.first_cabinet_show_change_text
         val secondCabinet = dialog.two_cabinet_show_change_text
-        val thrirdCabinet = dialog.three_cabinet_show_change_text
+        val thirdCabinet = dialog.three_cabinet_show_change_text
         val fourCabinet = dialog.four_cabinet_show_change_text
         val fiveCabinet = dialog.five_cabinet_show_change_text
         val sixCabinet = dialog.six_cabinet_show_change_text
         val sevenCabinet = dialog.seven_cabinet_show_change_text
 
-
-
+        val firstSub = dialog.first_subgroup_show_change_text
+        val twoSub = dialog.two_subgroup_show_change_text
+        val thirdSub = dialog.three_subgroup_show_change_text
+        val fourSub = dialog.four_subgroup_show_change_text
+        val fiveSub = dialog.five_subgroup_show_change_text
+        val sixSub = dialog.six_subgroup_show_change_text
+        val sevenSub = dialog.seven_subgroup_show_change_text
         //////////////////////////
         groupText.text = group
         dateText.text = date
+
+        for (i in changes) {
+            if(i.lessonNum!!.contains("1")!!) {
+                firstLesson.text = i.reason
+                firstCabinet.text = i.cabinet
+                firstSub.text = i.subGroup
+            } else if(i.lessonNum!!.contains("2")!!) {
+                secondLesson.text = i.reason
+                secondCabinet.text = i.cabinet
+                twoSub.text = i.subGroup
+            } else if(i.lessonNum!!.contains("3")!!) {
+                thirdLesson.text = i.reason
+                thirdCabinet.text = i.cabinet
+                thirdSub.text = i.subGroup
+            } else if(i.lessonNum!!.contains("4")!!) {
+                fourLesson.text = i.reason
+                fourCabinet.text = i.cabinet
+                fourSub.text = i.subGroup
+            } else if(i.lessonNum!!.contains("5")!!) {
+                fiveLesson.text = i.reason
+                fiveCabinet.text = i.cabinet
+                fiveSub.text = i.subGroup
+            } else if(i.lessonNum!!.contains("6")!!) {
+                sixLesson.text = i.reason
+                sixCabinet.text = i.cabinet
+                sixSub.text = i.subGroup
+            } else if(i.lessonNum!!.contains("7")!!) {
+                sevenLesson.text = i.reason
+                sevenCabinet.text = i.cabinet
+                sevenSub.text = i.subGroup
+            }
+        }
+
+
         dialog.show()
     }
 }

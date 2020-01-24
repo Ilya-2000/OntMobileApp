@@ -8,4 +8,5 @@ class Change() {
     var teacher: String? = null
     var group: String? = null
     var lessonNum: String? = null
+    var subGroup: String? = null
 }
