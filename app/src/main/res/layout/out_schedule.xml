@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*">
+    <TableRow
+        android:id="@+id/tab_schedule_info"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/date_show_schedule_text"
+            android:text="0000-00-00"
+            android:textSize="24sp"
+            android:gravity="center_horizontal">
+        </TextView>
+    </TableRow>
+    <TableRow
+        android:id="@+id/tab_schedule_header"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/num_row_show_schedule_text"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:text="№">
+        </TextView>
+        <TextView
+            android:id="@+id/discipline_row_show_schedule_text"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:text="Предмет">
+        </TextView>
+
+        <TextView
+            android:id="@+id/cabinet_row_show_schedule_text"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:text="Кабинет" >
+        </TextView>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:text="1"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/first_lesson_show_schedule_text"
+                android:gravity="center_horizontal"
+                android:textSize="24sp"
+                android:text="-">
+            </TextView>
+
+            <TextView
+                android:id="@+id/first_cabinet_show_schedule_text"
+                android:gravity="center_horizontal"
+                android:textSize="24sp"
+                android:text="-" >
+            </TextView>
+        </TableRow>
+
+
+    </TableRow>
+
+</TableLayout>
