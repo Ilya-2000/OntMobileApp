@@ -137,6 +137,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         var layoutParams: WindowManager.LayoutParams = dialog.window!!.attributes
         val width = ViewGroup.LayoutParams.MATCH_PARENT
         val height = ViewGroup.LayoutParams.MATCH_PARENT
+
         dialog.window!!.setLayout(width,height)
         dialog.window!!.attributes = layoutParams
         ///////////////////////

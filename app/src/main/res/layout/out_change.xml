@@ -3,6 +3,11 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:shrinkColumns="*"
     android:stretchColumns="*">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
     <TableRow
         android:id="@+id/tab_change_info"
         android:layout_height="wrap_content"
