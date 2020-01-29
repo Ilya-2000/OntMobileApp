@@ -34,6 +34,9 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private var changes = mutableListOf<Change>()
     private var dateSelect: String? = null
     private var groupSelect: String? = null
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
