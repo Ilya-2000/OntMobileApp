@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/close_item_menu"
-        android:icon="@drawable/nopic"
+        android:icon="@drawable/ic_close_black_24dp"
         android:title="Закрыть"
         app:showAsAction="always" />
 </menu>

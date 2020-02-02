@@ -169,6 +169,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val fiveSub = dialog.five_subgroup_show_change_text
         val sixSub = dialog.six_subgroup_show_change_text
         val sevenSub = dialog.seven_subgroup_show_change_text
+        val cancelBtn = dialog.cancel_out_change_btn
         //////////////////////////
         groupText.text = group
         dateText.text = date
@@ -203,6 +204,38 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 sevenCabinet.text = i.cabinet
                 sevenSub.text = i.subGroup
             }
+        }
+        cancelBtn.setOnClickListener {
+            firstLesson.text = "-"
+            firstCabinet.text = "-"
+            firstSub.text = "-"
+
+            secondLesson.text = "-"
+            secondCabinet.text = "-"
+            twoSub.text = "-"
+
+            thirdLesson.text = "-"
+            thirdCabinet.text = "-"
+            thirdSub.text = "-"
+
+            fourLesson.text = "-"
+            fourCabinet.text = "-"
+            fourSub.text = "-"
+
+            fiveLesson.text = "-"
+            fiveCabinet.text = "-"
+            fiveSub.text = "-"
+
+            sixLesson.text = "-"
+            sixCabinet.text = "-"
+            sixSub.text = "-"
+
+            sevenLesson.text = "-"
+            sevenCabinet.text = "-"
+            sevenSub.text = "-"
+            changes.clear()
+            dialog.cancel()
+
         }
 
 
