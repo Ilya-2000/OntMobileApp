@@ -17,6 +17,7 @@ import com.example.ontmobileapp.R
  * A simple [Fragment] subclass.
  */
 class ScheduleFragment : Fragment() {
+    //var schedules = mutableListOf<>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +46,8 @@ class ScheduleFragment : Fragment() {
 
         dialog.window!!.setLayout(width, height)
         dialog.window!!.attributes = layoutParams
+
+
 
         dialog.show()
     }
