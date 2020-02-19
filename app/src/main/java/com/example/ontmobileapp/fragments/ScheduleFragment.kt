@@ -35,26 +35,9 @@ class ScheduleFragment : Fragment() {
 
 
         showBtn.setOnClickListener {
-            getDialog("ага", "угу")
+            
         }
         return root
-    }
-
-
-
-    private fun getDialog(date: String, group: String) {
-        var dialog = Dialog(activity!!, R.style.MyTheme)
-        dialog.setContentView(R.layout.out_schedule)
-        var layoutParams: WindowManager.LayoutParams = dialog.window!!.attributes
-        val width = ViewGroup.LayoutParams.MATCH_PARENT
-        val height = ViewGroup.LayoutParams.MATCH_PARENT
-
-        dialog.window!!.setLayout(width, height)
-        dialog.window!!.attributes = layoutParams
-
-
-
-        dialog.show()
     }
 
     private fun getSchedule(url: String) {
