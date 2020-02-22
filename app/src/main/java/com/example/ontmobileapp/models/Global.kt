@@ -11,6 +11,7 @@ class Global {
         var dayOfTheWeekSelect: String? = null
         var groupsGlobal = mutableListOf<Group>()
         var posGroup: Int? = null
+        var scheduleList = mutableListOf<Schedule>()
 
 
     }

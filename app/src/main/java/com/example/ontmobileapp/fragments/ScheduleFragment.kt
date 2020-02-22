@@ -2,16 +2,18 @@ package com.example.ontmobileapp.fragments
 
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.Spinner
+import android.widget.*
 
 import com.example.ontmobileapp.R
+import com.example.ontmobileapp.models.Global
+import com.example.ontmobileapp.models.Group
 import com.example.ontmobileapp.models.Schedule
 import com.example.ontmobileapp.network.HttpRequest
 import org.json.JSONArray
@@ -21,8 +23,12 @@ import java.lang.Exception
 /**
  * A simple [Fragment] subclass.
  */
-class ScheduleFragment : Fragment() {
+class ScheduleFragment : Fragment(), AdapterView.OnItemSelectedListener {
     var schedules = mutableListOf<Schedule>()
+    private var groups = mutableListOf<Group>()
+    private var dateSelect: String? = null
+    private var groupSelect: String? = null
+    private var dateList = mutableListOf<String>("Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +39,20 @@ class ScheduleFragment : Fragment() {
         val dateSpinner = root.findViewById<Spinner>(R.id.date_schedule_spinner)
         val showBtn = root.findViewById<Button>(R.id.show_schedule_btn)
 
+        val adapter =
+            ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, groups)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        groupSpinner.adapter = adapter
+        groupSpinner.onItemSelectedListener = this
+        groupSpinner.setSelection(Global.posGroup!!)
+        dateSpinner.adapter = adapter
+        dateSpinner.onItemSelectedListener = this
+
 
         showBtn.setOnClickListener {
-            
+            getSchedule("http://api.ontvkr.ru/raspisanie/search.php?s=$groupSelect&&p=$dateSelect")
+            Global.scheduleList = schedules
+            startActivity(Intent(activity!!, ShowScheduleFragment::class.java))
         }
         return root
     }
@@ -71,6 +88,24 @@ class ScheduleFragment : Fragment() {
     } catch (e: Exception) {
             e.message
         }
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+        when(parent!!.id) {
+            R.id.group_schedule_spinner -> {
+                groupSelect = groups.get(position).name.toString()
+                Toast.makeText(activity, groupSelect, Toast.LENGTH_LONG).show()
+            }
+            R.id.date_schedule_spinner -> {
+                dateSelect = dateList.get(position)
+            }
+        }
+
     }
 
 
