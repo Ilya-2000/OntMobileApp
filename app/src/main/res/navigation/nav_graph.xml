@@ -29,4 +29,18 @@
         android:id="@+id/navigation_tableFragment"
         android:name="com.example.ontmobileapp.fragments.TableFragment"
         android:label="TableFragment" />
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.ontmobileapp.fragments.ScheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_scheduleFragment_to_showScheduleFragment"
+            app:destination="@id/showScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showScheduleFragment"
+        android:name="com.example.ontmobileapp.fragments.ShowScheduleFragment"
+        android:label="fragment_show_schedule"
+        tools:layout="@layout/fragment_show_schedule" />
 </navigation>

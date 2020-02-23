@@ -28,10 +28,13 @@ class ScheduleShowRvAdapter (var items: List<Schedule>):
         private var numberLesson = itemView.findViewById<TextView>(R.id.num_lesson_schedule_text)
         private var discipline = itemView.findViewById<TextView>(R.id.discipline_schedule_text)
         private var cabinet = itemView.findViewById<TextView>(R.id.cabinet_schedule_text)
+        private var type = itemView.findViewById<TextView>(R.id.type_lesson_schedule)
+
         fun  bind(item: Schedule) {
             numberLesson.text = item.lessonNum
             discipline.text = item.lessonName
             cabinet.text = item.cabinet
+            type.text = item.type
         }
     }
 }

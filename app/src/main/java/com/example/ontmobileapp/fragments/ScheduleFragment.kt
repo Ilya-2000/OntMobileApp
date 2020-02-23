@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
+import androidx.navigation.fragment.findNavController
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.models.Global
@@ -35,6 +36,8 @@ class ScheduleFragment : Fragment(), AdapterView.OnItemSelectedListener {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_schedule, container, false)
+        groups = Global.groupsGlobal
+        val navController = findNavController()
         val groupSpinner = root.findViewById<Spinner>(R.id.group_schedule_spinner)
         val dateSpinner = root.findViewById<Spinner>(R.id.date_schedule_spinner)
         val showBtn = root.findViewById<Button>(R.id.show_schedule_btn)
@@ -45,14 +48,19 @@ class ScheduleFragment : Fragment(), AdapterView.OnItemSelectedListener {
         groupSpinner.adapter = adapter
         groupSpinner.onItemSelectedListener = this
         groupSpinner.setSelection(Global.posGroup!!)
-        dateSpinner.adapter = adapter
+
+        val adapterDateSpinner =
+            ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, dateList)
+        adapterDateSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        dateSpinner.adapter = adapterDateSpinner
         dateSpinner.onItemSelectedListener = this
 
 
         showBtn.setOnClickListener {
             getSchedule("http://api.ontvkr.ru/raspisanie/search.php?s=$groupSelect&&p=$dateSelect")
             Global.scheduleList = schedules
-            startActivity(Intent(activity!!, ShowScheduleFragment::class.java))
+            navController.navigate(R.id.showScheduleFragment)
+
         }
         return root
     }
