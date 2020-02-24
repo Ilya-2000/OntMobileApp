@@ -49,7 +49,7 @@ class NewsRvAdapter(var context: Context, var items: List<News>, var navControll
 
     inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var title = itemView.findViewById<TextView>(R.id.news_header_text)
-        private var imageView = itemView.findViewById<TextView>(R.id.news_img)
+        private var imageView = itemView.findViewById<ImageView>(R.id.news_img)
 
 
         fun  bind(item: News) {
