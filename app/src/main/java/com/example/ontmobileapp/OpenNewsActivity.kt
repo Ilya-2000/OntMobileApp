@@ -1,10 +1,12 @@
 package com.example.ontmobileapp
 
+import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toolbar
 import com.example.ontmobileapp.models.Global
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_open_news.*
@@ -20,6 +22,15 @@ class OpenNewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_open_news)
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.open_news_toolbar)
+        setSupportActionBar(toolbar)
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
         val global = Global
         link = global.newsUrl
         header = global.newsTitle
