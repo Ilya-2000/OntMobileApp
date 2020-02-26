@@ -293,6 +293,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Закрыть"
+        android:background="@drawable/buttonshape"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

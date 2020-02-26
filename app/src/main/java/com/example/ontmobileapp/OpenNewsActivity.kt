@@ -1,15 +1,20 @@
 package com.example.ontmobileapp
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
 import com.example.ontmobileapp.models.Global
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_open_news.*
+import kotlinx.android.synthetic.main.full_img.*
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -34,18 +39,42 @@ class OpenNewsActivity : AppCompatActivity() {
         val global = Global
         link = global.newsUrl
         header = global.newsTitle
-        img = global.newsImg
+        img =  global.newsImg
         val headerText = findViewById<TextView>(R.id.header_open_news)
         val imageView = findViewById<ImageView>(R.id.image_open_news)
         val descriptionText = findViewById<TextView>(R.id.description_open_news)
-
         headerText.text = header
+
         Picasso.get()
             .load(img)
             .into(imageView)
+        imageView.setOnClickListener {
+            getDialog(img!!)
+        }
         val parse = PageParse(link, this)
         parse.execute()
 
+
+    }
+
+     fun getDialog(d: String) {
+        var dialog = Dialog(this,R.style.MyTheme)
+        dialog.setContentView(R.layout.full_img)
+        var layoutParams: WindowManager.LayoutParams = dialog.window!!.attributes
+        val width = ViewGroup.LayoutParams.MATCH_PARENT
+        val height = ViewGroup.LayoutParams.MATCH_PARENT
+        dialog.window!!.setLayout(width,height)
+        dialog.window!!.attributes = layoutParams
+
+        val image = dialog.imageView_full
+        Picasso.get()
+            .load(d)
+            .into(image)
+        dialog.show()
+        image.setOnClickListener {
+            image.setImageDrawable(null)
+            dialog.cancel()
+        }
 
     }
 }
@@ -79,4 +108,7 @@ class PageParse(url: String?, private var activity: OpenNewsActivity) : AsyncTas
         activity.description_open_news.text = textSite
         super.onPostExecute(result)
     }
+
+
+
 }

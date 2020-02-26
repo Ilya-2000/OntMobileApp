@@ -43,4 +43,9 @@
         android:name="com.example.ontmobileapp.fragments.ShowScheduleFragment"
         android:label="fragment_show_schedule"
         tools:layout="@layout/fragment_show_schedule" />
+    <fragment
+        android:id="@+id/navigation_abirturient"
+        android:name="com.example.ontmobileapp.fragments.AbirturientFragment"
+        android:label="fragment_abirturient"
+        tools:layout="@layout/fragment_abirturient" />
 </navigation>

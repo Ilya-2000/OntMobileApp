@@ -34,9 +34,8 @@ class TableFragment : Fragment() {
 
         val viewPager = view.findViewById<ViewPager>(R.id.schedule_view_pager)
 
-
         if (viewPager != null) {
-            val adapter = SchedulePagerAdapter(fragmentManager!!)
+            val adapter = SchedulePagerAdapter(childFragmentManager)
             viewPager.adapter = adapter
         }
      //this.schedule_tabs.setupWithViewPager(viewPager)
