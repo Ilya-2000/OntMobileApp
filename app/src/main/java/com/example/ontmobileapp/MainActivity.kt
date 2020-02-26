@@ -9,11 +9,8 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.ontmobileapp.models.Global
-import com.example.ontmobileapp.models.News
-import com.example.ontmobileapp.network.HttpGetNews
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -34,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_news, R.id.navigation_tableFragment, R.id.navigation_college, R.id.navigation_abirturient
+                R.id.navigation_news, R.id.navigation_tableFragment, R.id.navigation_college
             )
         )
 

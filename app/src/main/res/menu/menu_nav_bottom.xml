@@ -13,8 +13,4 @@
         android:id="@+id/navigation_college"
         android:icon="@drawable/ic_business_black_24dp"
         android:title="О техникуме" />
-    <item
-        android:id="@+id/navigation_abirturient"
-        android:icon="@drawable/ic_dialog_close_dark"
-        android:title="Абиртуриенту" />
 </menu>

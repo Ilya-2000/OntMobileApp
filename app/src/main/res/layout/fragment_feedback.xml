@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AbirturientFragment">
+    tools:context=".fragments.FeedbackFragment">
 
-
+    <WebView
+        android:id="@+id/callback_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

@@ -6,11 +6,18 @@
     tools:context=".fragments.CollegeFragment"
     android:background="#DEDEDE">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
-    <WebView
-        android:id="@+id/callback_web_view"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/college_vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.PagerTabStrip
+            android:id="@+id/tab_college"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"/>
+    </androidx.viewpager.widget.ViewPager>
+
 </FrameLayout>
