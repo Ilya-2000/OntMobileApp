@@ -60,8 +60,8 @@
                 android:id="@+id/cabinet_schedule_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="200dp"
                 android:text="0"
+                android:layout_gravity="center_vertical|end"
                 android:textSize="24sp" />
 
         </LinearLayout>

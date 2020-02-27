@@ -12,6 +12,7 @@ class Global {
         var groupsGlobal = mutableListOf<Group>()
         var posGroup: Int? = null
         var scheduleList = mutableListOf<Schedule>()
+        var listNewsGlobal = mutableListOf<News>()
 
 
     }

@@ -33,9 +33,7 @@ class NewsFragment : Fragment() {
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
         var urlNews : String
         var headerNews: String
-        val httpGetNews = HttpGetNews()
-        httpGetNews.execute()
-        listNews = httpGetNews.get()
+        listNews = Global.listNewsGlobal
         val adapter = NewsRvAdapter(activity!!, listNews, navController)
         recyclerView.adapter = adapter
 

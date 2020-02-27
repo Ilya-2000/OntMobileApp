@@ -8,6 +8,8 @@ import android.os.Handler
 import android.widget.Toast
 import com.example.ontmobileapp.models.Global
 import com.example.ontmobileapp.models.Group
+import com.example.ontmobileapp.models.News
+import com.example.ontmobileapp.network.HttpGetNews
 import com.example.ontmobileapp.network.HttpRequest
 import org.json.JSONArray
 import org.json.JSONObject
@@ -15,10 +17,12 @@ import java.lang.Exception
 
 class SplashActivity : AppCompatActivity() {
     private var groups = mutableListOf<Group>()
+    private var listNews = mutableListOf<News>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         getGroup()
+        getNews()
         Global.groupsGlobal = groups
 
         var handler = Handler().postDelayed(Runnable {
@@ -64,5 +68,15 @@ class SplashActivity : AppCompatActivity() {
             val toast = Toast.makeText(this,e.message, Toast.LENGTH_LONG).show()
         }
 
+    }
+    private fun getNews() {
+        try {
+            val httpGetNews = HttpGetNews()
+            httpGetNews.execute()
+            listNews = httpGetNews.get()
+            Global.listNewsGlobal = listNews
+        } catch (e: Exception) {
+            e.message
+        }
     }
 }
