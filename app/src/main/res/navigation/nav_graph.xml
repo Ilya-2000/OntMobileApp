@@ -15,11 +15,6 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
-    <fragment
-        android:id="@+id/navigation_college"
-        android:name="com.example.ontmobileapp.fragments.CollegeFragment"
-        android:label="fragment_college"
-        tools:layout="@layout/fragment_college" />
     <activity
         android:id="@+id/openNewsActivity"
         android:name="com.example.ontmobileapp.OpenNewsActivity"
@@ -43,4 +38,26 @@
         android:name="com.example.ontmobileapp.fragments.ShowScheduleFragment"
         android:label="fragment_show_schedule"
         tools:layout="@layout/fragment_show_schedule" />
+    <fragment
+        android:id="@+id/navigation_college"
+        android:name="com.example.ontmobileapp.fragments.CollegeMainFragment"
+        android:label="fragment_college_main"
+        tools:layout="@layout/fragment_college_main" >
+        <action
+            android:id="@+id/action_navigation_college_to_feedbackFragment"
+            app:destination="@id/feedbackFragment" />
+        <action
+            android:id="@+id/action_navigation_college_to_applicantFragment"
+            app:destination="@id/applicantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.example.ontmobileapp.fragments.FeedbackFragment"
+        android:label="fragment_feedback"
+        tools:layout="@layout/fragment_feedback" />
+    <fragment
+        android:id="@+id/applicantFragment"
+        android:name="com.example.ontmobileapp.fragments.ApplicantFragment"
+        android:label="fragment_applicant"
+        tools:layout="@layout/fragment_applicant" />
 </navigation>

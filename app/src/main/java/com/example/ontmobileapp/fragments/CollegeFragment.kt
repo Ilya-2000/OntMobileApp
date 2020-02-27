@@ -23,19 +23,19 @@ class CollegeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_college, container, false)
-        val vp = view.findViewById<ViewPager>(R.id.college_vp)
+        /*val vp = view.findViewById<ViewPager>(R.id.college_vp)
 
         if (vp != null) {
             val adapter = CollegePagerAdapter(childFragmentManager)
             vp.adapter = adapter
-        }
+        }*/
         return view
     }
 
 
 }
 
-class CollegePagerAdapter internal constructor(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
+/*class CollegePagerAdapter internal constructor(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
     private val count = 2
     private val titles = mutableListOf<Int>(R.string.tab_schedule_one, R.string.tab_schedule_two)
     override fun getItem(position: Int): Fragment {
@@ -61,4 +61,4 @@ class CollegePagerAdapter internal constructor(fragmentManager: FragmentManager)
     }
 
 
-}
+}*/

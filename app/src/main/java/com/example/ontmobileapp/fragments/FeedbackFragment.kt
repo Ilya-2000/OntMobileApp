@@ -20,7 +20,8 @@ class FeedbackFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_feedback, container, false)
         val webView = root.findViewById<WebView>(R.id.callback_web_view)
-        webView.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLSe9cjxh_IwyNmZn4SMA2r8Oe1gjrlDXiFYYOLlOetlchT6XWg/viewform")
+        webView.loadUrl("http://www.nt-orsk.ru/index.php/2017-01-05-14-06-48")
+        //https://docs.google.com/forms/d/e/1FAIpQLSe9cjxh_IwyNmZn4SMA2r8Oe1gjrlDXiFYYOLlOetlchT6XWg/viewform
         return root
     }
 
