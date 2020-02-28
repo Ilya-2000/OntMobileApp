@@ -14,17 +14,18 @@ class HttpGetNews: AsyncTask<Void, Void, MutableList<News>>() {
             var document: Document?
             var newsMassive: Elements?
             try {
-                document = Jsoup.connect("http://www.nt-orsk.ru/index.php/novosti").get()
+                
+                document = Jsoup.connect("http://nt-orsk.ru/index.php?start=1").get()
 
                 if(document != null) {
                     title = document.title()
-                    newsMassive = document.select("div[class=blog]")
+                    newsMassive = document.select("div[class=blog-featured]")
                     val newsData = newsMassive.select("div[itemprop=blogPost]")
 
                     for(i: Int in 0 until newsData.size) {
-                        val newsTitle = newsData.get(i).select("h2[itemprop=name]").text()
+                        val newsTitle = newsData.get(i).select("a").text()
                         val imgNews = "http://nt-orsk.ru/" + newsData.get(i).select("img").attr("src").toString()
-                        val linkNews = "http://nt-orsk.ru/" + newsData.get(i).select("a[itemprop=url]").attr("href").toString()
+                        val linkNews = "http://nt-orsk.ru/" + newsData.get(i).select("a").attr("href").toString()
                         list.add(News(newsTitle,imgNews, linkNews))
                     }
                 } else {
