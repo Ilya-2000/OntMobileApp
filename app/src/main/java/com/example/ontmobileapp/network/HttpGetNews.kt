@@ -7,15 +7,16 @@ import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 import java.io.IOException
 
-class HttpGetNews: AsyncTask<Void, Void, MutableList<News>>() {
-        var title: String? = null
+class HttpGetNews: AsyncTask<Int, Void, MutableList<News>>() {
+    var title: String? = null
         private val list = mutableListOf<News>()
-        override fun doInBackground(vararg p0: Void?): MutableList<News>? {
+        var count: Int = 0
+        override fun doInBackground(vararg p0: Int?): MutableList<News>? {
             var document: Document?
             var newsMassive: Elements?
             try {
-                
-                document = Jsoup.connect("http://nt-orsk.ru/index.php?start=1").get()
+
+                document = Jsoup.connect("http://nt-orsk.ru/index.php?start=$count").get()
 
                 if(document != null) {
                     title = document.title()

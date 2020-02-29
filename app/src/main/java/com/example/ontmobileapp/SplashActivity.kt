@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         getGroup()
-        getNews()
+        getNews(0)
         Global.groupsGlobal = groups
 
         var handler = Handler().postDelayed(Runnable {
@@ -69,9 +69,10 @@ class SplashActivity : AppCompatActivity() {
         }
 
     }
-    private fun getNews() {
+    private fun getNews(i: Int) {
         try {
             val httpGetNews = HttpGetNews()
+            httpGetNews.count = i
             httpGetNews.execute()
             listNews = httpGetNews.get()
             Global.listNewsGlobal = listNews
