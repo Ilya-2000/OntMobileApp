@@ -26,6 +26,8 @@ import java.lang.Exception
  */
 class NewsFragment : Fragment() {
     private var listNews = mutableListOf<News>()
+    private var listNewsLocal = mutableListOf<News>()
+    private var count: Int = Global.newsCountLoad
 
 
     override fun onCreateView(
@@ -59,16 +61,20 @@ class NewsFragment : Fragment() {
     private fun setRecyclerViewScrollListener(recyclerView: RecyclerView) {
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
-            var count: Int = 0
             private val lastVisibleItemPosition: Int
                 get() = (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 val totalItemCount = recyclerView.layoutManager!!.itemCount
                 if (totalItemCount == lastVisibleItemPosition + 1) {
-                    count
-                    Log.d("MyTAG", "Bruh")
-                    Toast.makeText(activity, "$totalItemCount", Toast.LENGTH_LONG).show()
+                    count += 5
+                    Global.newsCountLoad = count
+                    getNews(count)
+
+                    Log.d("listNews", "$listNews")
+                    Log.d("countSize", "$count")
+                    Log.d("listNewsSize", "${listNews.size}")
+                    Toast.makeText(activity, "$count", Toast.LENGTH_LONG).show()
                 }
 
             }
@@ -82,12 +88,14 @@ class NewsFragment : Fragment() {
     }
 
     private fun getNews(i: Int) {
+
         try {
             val httpGetNews = HttpGetNews()
             httpGetNews.count = i
             httpGetNews.execute()
-            listNews = httpGetNews.get()
-            Global.listNewsGlobal = listNews
+            listNewsLocal = httpGetNews.get()
+            listNews.addAll(listNewsLocal)
+            listNewsLocal.clear()
         } catch (e: Exception) {
             e.message
         }

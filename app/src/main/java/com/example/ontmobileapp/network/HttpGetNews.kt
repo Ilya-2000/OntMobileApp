@@ -16,11 +16,11 @@ class HttpGetNews: AsyncTask<Int, Void, MutableList<News>>() {
             var newsMassive: Elements?
             try {
 
-                document = Jsoup.connect("http://nt-orsk.ru/index.php?start=$count").get()
+                document = Jsoup.connect("http://nt-orsk.ru/index.php/novosti?start=$count").get()
 
                 if(document != null) {
                     title = document.title()
-                    newsMassive = document.select("div[class=blog-featured]")
+                    newsMassive = document.select("div[class=span8 sidebar_right]")
                     val newsData = newsMassive.select("div[itemprop=blogPost]")
 
                     for(i: Int in 0 until newsData.size) {
