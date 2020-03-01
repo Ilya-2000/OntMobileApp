@@ -28,6 +28,7 @@ class NewsFragment : Fragment() {
     private var listNews = mutableListOf<News>()
     private var listNewsLocal = mutableListOf<News>()
     private var count: Int = Global.newsCountLoad
+    var isLoading: Boolean = false
 
 
     override fun onCreateView(
@@ -43,6 +44,7 @@ class NewsFragment : Fragment() {
         listNews = Global.listNewsGlobal
         val adapter = NewsRvAdapter(activity!!, listNews, navController)
         recyclerView.adapter = adapter
+        recyclerView.setHasFixedSize(true)
         setRecyclerViewScrollListener(recyclerView)
 
 
@@ -66,15 +68,18 @@ class NewsFragment : Fragment() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 val totalItemCount = recyclerView.layoutManager!!.itemCount
-                if (totalItemCount  == lastVisibleItemPosition + 1) {
-                    count += 5
-                    Global.newsCountLoad = count
-                    getNews(count)
+                if (!isLoading) {
+                    if (totalItemCount == lastVisibleItemPosition + 1) {
+                        isLoading = true
+                        count += 5
+                        Global.newsCountLoad = count
+                        getNews(count)
 
-                    Log.d("listNews", "$listNews")
-                    Log.d("countSize", "$count")
-                    Log.d("listNewsSize", "${listNews.size}")
-                    Toast.makeText(activity, "$count", Toast.LENGTH_LONG).show()
+                        Log.d("listNews", "$listNews")
+                        Log.d("countSize", "$count")
+                        Log.d("listNewsSize", "${listNews.size}")
+                        Toast.makeText(activity, "$count", Toast.LENGTH_LONG).show()
+                    }
                 }
 
             }

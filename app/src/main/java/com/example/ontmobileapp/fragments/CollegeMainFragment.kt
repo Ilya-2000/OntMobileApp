@@ -7,9 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager.widget.ViewPager
 
 import com.example.ontmobileapp.R
+import com.example.ontmobileapp.adapters.SchedulePagerAdapter
+import com.google.android.material.tabs.TabItem
+import com.google.android.material.tabs.TabLayout
 
 /**
  * A simple [Fragment] subclass.
@@ -21,18 +27,46 @@ class CollegeMainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_college_main, container, false)
-        val applicantBtn = root.findViewById<CardView>(R.id.applicant_btn)
-        val feedbackBtn = root.findViewById<CardView>(R.id.feedback_btn)
-        val navController = findNavController()
-
-        applicantBtn.setOnClickListener {
-            navController.navigate(R.id.action_navigation_college_to_applicantFragment)
+        val viewPager = root.findViewById<ViewPager>(R.id.college_vp)
+        val tabLayout = root.findViewById<TabLayout>(R.id.tab_layout_college)
+        if (viewPager != null) {
+            val adapter = CollegeVpAdapter(childFragmentManager)
+            viewPager.adapter = adapter
+            tabLayout.setupWithViewPager(viewPager)
+            viewPager.offscreenPageLimit = 2
         }
 
-        feedbackBtn.setOnClickListener {
-            navController.navigate(R.id.action_navigation_college_to_feedbackFragment)
-        }
+
+
+
         return root
     }
+
+}
+
+class CollegeVpAdapter internal constructor(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
+    private val count = 2
+    override fun getItem(position: Int): Fragment {
+        var fragment: Fragment? = null
+        when(position){
+            0 -> fragment = ApplicantFragment()
+            1 -> fragment = FeedbackFragment()
+        }
+        return fragment!!
+    }
+
+    override fun getCount(): Int {
+        return count
+    }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        var t: String? = null
+        when (position) {
+            0 -> t = "Абитуриенту"
+            1 -> t = "Обратная связь"
+        }
+        return t
+    }
+
 
 }

@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
 
         var handler = Handler().postDelayed(Runnable {
             checkStart()
-        }, 2500)
+        }, 2000)
     }
 
     fun checkStart() {
@@ -35,11 +35,13 @@ class SplashActivity : AppCompatActivity() {
         var isVisited: Boolean = shared.getBoolean("visited", false)
         if (!isVisited) {
             startActivity(Intent(this,SettingsActivity::class.java))
+            finish()
             var editor = shared.edit()
             editor.putBoolean("visited", true)
             editor.apply()
         } else {
             startActivity(Intent(this,MainActivity::class.java))
+            finish()
         }
     }
 
