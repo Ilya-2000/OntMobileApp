@@ -66,7 +66,7 @@ class NewsFragment : Fragment() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 val totalItemCount = recyclerView.layoutManager!!.itemCount
-                if (totalItemCount == lastVisibleItemPosition + 1) {
+                if (totalItemCount  == lastVisibleItemPosition + 1) {
                     count += 5
                     Global.newsCountLoad = count
                     getNews(count)
