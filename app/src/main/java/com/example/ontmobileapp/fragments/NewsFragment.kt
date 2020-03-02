@@ -70,10 +70,11 @@ class NewsFragment : Fragment() {
                 val totalItemCount = recyclerView.layoutManager!!.itemCount
                 if (!isLoading) {
                     if (totalItemCount == lastVisibleItemPosition + 1) {
-                        isLoading = true
+                        //isLoading = true
                         count += 5
                         Global.newsCountLoad = count
                         getNews(count)
+                        recyclerView.adapter!!.notifyItemInserted(listNews.size - 1)
 
                         Log.d("listNews", "$listNews")
                         Log.d("countSize", "$count")

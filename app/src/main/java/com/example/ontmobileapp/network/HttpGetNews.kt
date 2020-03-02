@@ -24,7 +24,7 @@ class HttpGetNews: AsyncTask<Int, Void, MutableList<News>>() {
                     val newsData = newsMassive.select("div[itemprop=blogPost]")
 
                     for(i: Int in 0 until newsData.size) {
-                        val newsTitle = newsData.get(i).select("a").text()
+                        val newsTitle = newsData.get(i).select("h2[itemprop=name]").text()
                         val imgNews = "http://nt-orsk.ru/" + newsData.get(i).select("img").attr("src").toString()
                         val linkNews = "http://nt-orsk.ru/" + newsData.get(i).select("a").attr("href").toString()
                         list.add(News(newsTitle,imgNews, linkNews))

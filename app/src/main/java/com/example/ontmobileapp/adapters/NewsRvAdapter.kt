@@ -23,13 +23,35 @@ import kotlinx.android.synthetic.main.news_item.view.*
 
 class NewsRvAdapter(var context: Context, var items: List<News>, var navController: NavController): RecyclerView.Adapter<NewsRvAdapter.ViewHolder>() {
     private var listener: OnСlickListener? = null
+    private val VIEW_TYPE_ITEM = 0
+    private val VIEW_TYPE_LOADING = 1
 
     fun setListener(listener: OnСlickListener) {
         this.listener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.news_item, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        if (viewType == VIEW_TYPE_ITEM) {
+            val itemView = ViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.news_item,
+                    parent,
+                    false
+                )
+            )
+            return itemView
+        } else {
+            val itemView = ViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.item_loading,
+                    parent,
+                    false
+                )
+            )
+            return itemView
+        }
+
+    }
 
     override fun getItemCount(): Int = items.size
 
