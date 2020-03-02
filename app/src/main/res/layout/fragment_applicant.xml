@@ -9,6 +9,19 @@
         android:id="@+id/applicant_webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/progress_bar_applicant_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <ProgressBar
+            android:id="@+id/progress_bar_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar"/>
+    </LinearLayout>
 
 
 </FrameLayout>

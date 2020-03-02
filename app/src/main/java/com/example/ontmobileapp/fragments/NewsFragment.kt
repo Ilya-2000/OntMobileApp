@@ -2,6 +2,7 @@ package com.example.ontmobileapp.fragments
 
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import com.example.ontmobileapp.adapters.NewsRvAdapter
 import com.example.ontmobileapp.models.Global
 import com.example.ontmobileapp.models.News
 import com.example.ontmobileapp.network.HttpGetNews
+import kotlinx.android.synthetic.main.fragment_news.*
 import java.lang.Exception
 
 /**
@@ -29,6 +31,8 @@ class NewsFragment : Fragment() {
     private var listNewsLocal = mutableListOf<News>()
     private var count: Int = Global.newsCountLoad
     var isLoading: Boolean = false
+    private lateinit var mHandler: Handler
+    private lateinit var mRunnable: Runnable
 
 
     override fun onCreateView(
@@ -37,6 +41,7 @@ class NewsFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val navController = findNavController()
+        mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
         recyclerView.layoutManager = LinearLayoutManager(activity!!, RecyclerView.VERTICAL, false)
         var urlNews : String
@@ -70,11 +75,13 @@ class NewsFragment : Fragment() {
                 val totalItemCount = recyclerView.layoutManager!!.itemCount
                 if (!isLoading) {
                     if (totalItemCount == lastVisibleItemPosition + 1) {
-                        //isLoading = true
+                        showProgress()
+                        mHandler.postDelayed(Runnable {
                         count += 5
                         Global.newsCountLoad = count
                         getNews(count)
                         recyclerView.adapter!!.notifyItemInserted(listNews.size - 1)
+                        },500)
 
                         Log.d("listNews", "$listNews")
                         Log.d("countSize", "$count")
@@ -94,7 +101,6 @@ class NewsFragment : Fragment() {
     }
 
     private fun getNews(i: Int) {
-
         try {
             val httpGetNews = HttpGetNews()
             httpGetNews.count = i
@@ -102,8 +108,15 @@ class NewsFragment : Fragment() {
             listNewsLocal = httpGetNews.get()
             listNews.addAll(listNewsLocal)
             listNewsLocal.clear()
+            hideProgress()
         } catch (e: Exception) {
             e.message
         }
+    }
+    fun showProgress() {
+        progress_bar_news_layout.visibility = View.VISIBLE
+    }
+    fun hideProgress() {
+        progress_bar_news_layout.visibility = View.GONE
     }
 }
