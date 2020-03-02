@@ -55,7 +55,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         groups = Global.groupsGlobal
         dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()
-        dateText.text = dateSelect
+        dateText.text = day.toString() + "." + (month + 1).toString() + "." + year.toString()
         val adapter =
             ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, groups)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -70,7 +70,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
             var d = c.get(Calendar.DAY_OF_MONTH)
             var datePickerDialog = DatePickerDialog(activity!!,DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
                 dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()
-                dateText.text = dateSelect
+                dateText.text = day.toString() + "." + (month + 1).toString() + "." + year.toString()
             }, y, m, d)
             datePickerDialog.show()
 

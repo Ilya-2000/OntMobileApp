@@ -14,6 +14,7 @@ import com.example.ontmobileapp.adapters.SchedulePagerAdapter
 import com.example.ontmobileapp.models.Global
 import com.example.ontmobileapp.models.Group
 import com.example.ontmobileapp.network.HttpRequest
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_table.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -33,11 +34,13 @@ class TableFragment : Fragment() {
 
 
         val viewPager = view.findViewById<ViewPager>(R.id.schedule_view_pager)
+        val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout_table)
 
         if (viewPager != null) {
             val adapter = SchedulePagerAdapter(childFragmentManager)
             viewPager.adapter = adapter
         }
+        tabLayout.setupWithViewPager(viewPager)
      //this.schedule_tabs.setupWithViewPager(viewPager)
         return view
     }

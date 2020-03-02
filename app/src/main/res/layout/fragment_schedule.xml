@@ -21,7 +21,7 @@
             app:layout_constraintHorizontal_bias="0.071"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.022" />
+            app:layout_constraintVertical_bias="0.100000024" />
 
         <Spinner
             android:id="@+id/date_schedule_spinner"
@@ -34,20 +34,20 @@
             app:layout_constraintHorizontal_bias="0.071"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.152" />
+            app:layout_constraintVertical_bias="0.19" />
 
         <Button
             android:id="@+id/show_schedule_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:background="@color/colorPrimary"
             android:paddingStart="50dp"
+            android:paddingTop="5dp"
             android:paddingEnd="50dp"
+            android:paddingBottom="5dp"
             android:text="Расписание"
             android:textColor="#fff"
-            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
