@@ -45,12 +45,13 @@ class CollegeMainFragment : Fragment() {
 }
 
 class CollegeVpAdapter internal constructor(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
-    private val count = 2
+    private val count = 3
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when(position){
-            0 -> fragment = ApplicantFragment()
-            1 -> fragment = FeedbackFragment()
+            0 -> fragment = AboutCollegeFragment()
+            1 -> fragment = ApplicantFragment()
+            2 -> fragment = FeedbackFragment()
         }
         return fragment!!
     }
@@ -62,8 +63,9 @@ class CollegeVpAdapter internal constructor(fragmentManager: FragmentManager): F
     override fun getPageTitle(position: Int): CharSequence? {
         var t: String? = null
         when (position) {
-            0 -> t = "Абитуриенту"
-            1 -> t = "Обратная связь"
+            0 -> t = "О техникуме"
+            1 -> t = "Абитуриенту"
+            2 -> t = "Обратная связь"
         }
         return t
     }
