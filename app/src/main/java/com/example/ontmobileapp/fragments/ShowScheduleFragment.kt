@@ -2,6 +2,7 @@ package com.example.ontmobileapp.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ class ShowScheduleFragment : Fragment() {
         val recyclerView = root.findViewById<RecyclerView>(R.id.show_schedule_rv)
         var adapter = ScheduleShowRvAdapter(Global.scheduleList)
         recyclerView.adapter = adapter
+        Log.d("schedule", Global.scheduleList.size.toString())
         return root
     }
 

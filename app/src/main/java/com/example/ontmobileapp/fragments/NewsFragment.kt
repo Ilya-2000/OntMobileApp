@@ -83,10 +83,10 @@ class NewsFragment : Fragment() {
                         recyclerView.adapter!!.notifyItemInserted(listNews.size - 1)
                         },500)
 
-                        Log.d("listNews", "$listNews")
+                        /*Log.d("listNews", "$listNews")
                         Log.d("countSize", "$count")
                         Log.d("listNewsSize", "${listNews.size}")
-                        Toast.makeText(activity, "$count", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "$count", Toast.LENGTH_LONG).show()*/
                     }
                 }
 
