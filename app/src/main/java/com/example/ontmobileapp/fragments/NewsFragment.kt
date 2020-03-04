@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.ActionBar
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +43,7 @@ class NewsFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val navController = findNavController()
+        val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
         mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
         recyclerView.layoutManager = LinearLayoutManager(activity!!, RecyclerView.VERTICAL, false)
@@ -126,7 +129,7 @@ class NewsFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
+        var id = item.itemId
         when (id) {
             R.id.settings_item_menu -> {
                 startActivity(Intent(activity, SettingsActivity::class.java))
