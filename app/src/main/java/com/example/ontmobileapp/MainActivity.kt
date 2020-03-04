@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var toolbar: Toolbar = findViewById(R.id.toolbar_main)
+        //var toolbar: Toolbar = findViewById(R.id.toolbar_main)
         val sharedPreference = getSharedPreferences("settingsgroup", Context.MODE_PRIVATE)
         var editor = sharedPreference.edit()
         var c = sharedPreference.getInt("grouppos",0)
