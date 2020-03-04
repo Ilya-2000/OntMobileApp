@@ -1,13 +1,12 @@
 package com.example.ontmobileapp.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.Toast
@@ -16,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.ontmobileapp.R
+import com.example.ontmobileapp.SettingsActivity
 import com.example.ontmobileapp.adapters.NewsRvAdapter
 import com.example.ontmobileapp.models.Global
 import com.example.ontmobileapp.models.News
@@ -118,5 +118,22 @@ class NewsFragment : Fragment() {
     }
     fun hideProgress() {
         progress_bar_news_layout.visibility = View.GONE
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            R.id.settings_item_menu -> {
+                startActivity(Intent(activity, SettingsActivity::class.java))
+                Log.d("menu", "click")
+            }
+            R.id.about_us_menu_item -> startActivity(Intent(activity, AboutFragment::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

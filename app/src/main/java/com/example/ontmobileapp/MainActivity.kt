@@ -4,12 +4,15 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.example.ontmobileapp.fragments.AboutFragment
 import com.example.ontmobileapp.models.Global
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -43,16 +46,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         when (id) {
-            R.id.settings_item_menu -> startActivity(Intent(this, SettingsActivity::class.java))
+            R.id.settings_item_menu -> {
+                startActivity(Intent(this, SettingsActivity::class.java))
+                Log.d("menu", "click")
+            }
+            R.id.about_us_menu_item -> startActivity(Intent(this, AboutFragment::class.java))
         }
-        return true
+        return super.onOptionsItemSelected(item)
     }
 
 
