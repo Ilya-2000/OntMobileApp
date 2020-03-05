@@ -1,6 +1,7 @@
 package com.example.ontmobileapp.fragments
 
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -44,6 +45,7 @@ class NewsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val navController = findNavController()
         val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
+        
         mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
         recyclerView.layoutManager = LinearLayoutManager(activity!!, RecyclerView.VERTICAL, false)
