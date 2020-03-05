@@ -66,6 +66,8 @@ class NewsFragment : Fragment() {
             navController.navigate(R.id.openNewsActivity)
         }*/
 
+
+
         return root
     }
     private fun setRecyclerViewScrollListener(recyclerView: RecyclerView) {
