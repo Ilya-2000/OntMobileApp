@@ -43,4 +43,18 @@
         android:name="com.example.ontmobileapp.fragments.CollegeMainFragment"
         android:label="fragment_college_main"
         tools:layout="@layout/fragment_college_main" />
+    <fragment
+        android:id="@+id/changeFragment"
+        android:name="com.example.ontmobileapp.fragments.ChangeFragment"
+        android:label="fragment_change"
+        tools:layout="@layout/fragment_change" >
+        <action
+            android:id="@+id/action_changeFragment_to_showChangeFragment"
+            app:destination="@id/showChangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showChangeFragment"
+        android:name="com.example.ontmobileapp.fragments.ShowChangeFragment"
+        android:label="fragment_show_change"
+        tools:layout="@layout/fragment_show_change" />
 </navigation>

@@ -13,6 +13,7 @@ import android.widget.ListView
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,7 +46,8 @@ class NewsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val navController = findNavController()
         val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
-        
+        setHasOptionsMenu(true)
+        (activity as? AppCompatActivity)?.supportActionBar
         mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
         recyclerView.layoutManager = LinearLayoutManager(activity!!, RecyclerView.VERTICAL, false)

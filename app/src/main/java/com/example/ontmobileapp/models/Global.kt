@@ -13,6 +13,7 @@ class Global {
         var posGroup: Int? = null
         var scheduleList = mutableListOf<Schedule>()
         var listNewsGlobal = mutableListOf<News>()
+        var changesList = mutableListOf<Change>()
         var newsCountLoad: Int = 0
 
 

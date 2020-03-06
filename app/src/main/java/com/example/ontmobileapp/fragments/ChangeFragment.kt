@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.navigation.fragment.findNavController
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.models.Change
@@ -45,6 +47,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_change, container, false)
         var cal: Calendar = Calendar.getInstance()
+        val navController = findNavController()
         var year = cal.get(Calendar.YEAR)
         var month = cal.get(Calendar.MONTH)
         var day = cal.get(Calendar.DAY_OF_MONTH)
@@ -83,7 +86,9 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         showChangeBtn.setOnClickListener {
             getChangesSchedule("http://api.ontvkr.ru/izmenenia/search.php?s=$dateSelect&p=$groupSelect")
-            getDialog(dateSelect!!,groupSelect!!)
+            Global.changesList = changes
+            navController.navigate(R.id.showChangeFragment)
+            //getDialog(dateSelect!!,groupSelect!!)
             var toast = Toast.makeText(activity!!,dateSelect + groupSelect, Toast.LENGTH_LONG).show()
         }
 
@@ -134,7 +139,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
             e.printStackTrace()
         }
     }
-    private fun getDialog(date: String, group: String) {
+    /*private fun getDialog(date: String, group: String) {
         var dialog = Dialog(activity!!,R.style.MyTheme)
         dialog.setContentView(R.layout.out_change)
         var layoutParams: WindowManager.LayoutParams = dialog.window!!.attributes
@@ -240,6 +245,6 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 
         dialog.show()
-    }
+    }*/
 }
 
