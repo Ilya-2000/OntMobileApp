@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.NewsFragment"
     android:background="#DEDEDE">
-    <com.google.android.material.appbar.AppBarLayout
+   <!-- <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -21,7 +21,7 @@
             app:title="Новости"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-    </com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout> -->
 
 
     <androidx.recyclerview.widget.RecyclerView

@@ -45,9 +45,11 @@ class NewsFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val navController = findNavController()
-        val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
+//        val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_main)
         setHasOptionsMenu(true)
-        (activity as? AppCompatActivity)?.supportActionBar
+        //(activity as? AppCompatActivity)?.supportActionBar(toolbar)
+
+        //val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
 
         mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
@@ -130,7 +132,7 @@ class NewsFragment : Fragment() {
         progress_bar_news_layout.visibility = View.GONE
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu, inflater)
     }
@@ -145,7 +147,7 @@ class NewsFragment : Fragment() {
             R.id.about_us_menu_item -> startActivity(Intent(activity, AboutFragment::class.java))
         }
         return super.onOptionsItemSelected(item)
-    }
+    }*/
 }
 
 
