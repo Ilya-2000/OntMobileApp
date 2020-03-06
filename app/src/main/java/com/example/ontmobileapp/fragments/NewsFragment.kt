@@ -48,6 +48,7 @@ class NewsFragment : Fragment() {
         val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
         setHasOptionsMenu(true)
         (activity as? AppCompatActivity)?.supportActionBar
+
         mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
         recyclerView.layoutManager = LinearLayoutManager(activity!!, RecyclerView.VERTICAL, false)
@@ -146,3 +147,5 @@ class NewsFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 }
+
+
