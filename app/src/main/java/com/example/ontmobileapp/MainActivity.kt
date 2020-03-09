@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var toolbar: Toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
+
+
         val sharedPreference = getSharedPreferences("settingsgroup", Context.MODE_PRIVATE)
         var editor = sharedPreference.edit()
         var c = sharedPreference.getInt("grouppos",0)
@@ -36,6 +38,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_news, R.id.navigation_tableFragment, R.id.navigation_college
             )
         )
+
+
 
 
 
@@ -60,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.about_us_menu_item -> {
                 startActivity(Intent(this, AboutActivity::class.java))
-                finish()
+
             }
         }
         return super.onOptionsItemSelected(item)

@@ -13,6 +13,8 @@ class AboutActivity : AppCompatActivity() {
         val linkVkBtn = findViewById<Button>(R.id.vk_about_btn)
         val toolbar: Toolbar = findViewById(R.id.toolbar_main)
         toolbar.title = "О приложении"
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
     }
