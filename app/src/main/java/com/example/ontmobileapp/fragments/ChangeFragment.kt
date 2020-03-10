@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -87,6 +88,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         showChangeBtn.setOnClickListener {
             getChangesSchedule("http://api.ontvkr.ru/izmenenia/search.php?s=$dateSelect&p=$groupSelect")
             Global.changesList = changes
+            Log.d("change", changes.size.toString())
             navController.navigate(R.id.showChangeFragment)
             //getDialog(dateSelect!!,groupSelect!!)
             var toast = Toast.makeText(activity!!,dateSelect + groupSelect, Toast.LENGTH_LONG).show()

@@ -92,7 +92,7 @@ class NewsFragment : Fragment() {
                         count += 5
                         Global.newsCountLoad = count
                         getNews(count)
-                        recyclerView.adapter!!.notifyItemInserted(listNews.size - 1)
+                            recyclerView.adapter!!.notifyItemInserted(listNews.size - 1)
                         },500)
 
                         /*Log.d("listNews", "$listNews")

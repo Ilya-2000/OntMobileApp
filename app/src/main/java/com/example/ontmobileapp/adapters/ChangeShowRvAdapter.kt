@@ -9,7 +9,7 @@ import com.example.ontmobileapp.R
 import com.example.ontmobileapp.models.Change
 
 class ChangeShowRvAdapter (var items: List<Change>):
-RecyclerView.Adapter<ChangeShowRvAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ChangeShowRvAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(
