@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
+import com.example.ontmobileapp.MainActivity
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.adapters.SchedulePagerAdapter
@@ -29,6 +30,7 @@ class CollegeMainFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_college_main, container, false)
         val viewPager = root.findViewById<ViewPager>(R.id.college_vp)
         val tabLayout = root.findViewById<TabLayout>(R.id.tab_layout_college)
+        (activity as? MainActivity)?.supportActionBar?.title = "О техникуме"
         if (viewPager != null) {
             val adapter = CollegeVpAdapter(childFragmentManager)
             viewPager.adapter = adapter

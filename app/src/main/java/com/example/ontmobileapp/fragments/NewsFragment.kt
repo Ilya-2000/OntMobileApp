@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ontmobileapp.MainActivity
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.SettingsActivity
@@ -47,9 +48,10 @@ class NewsFragment : Fragment() {
         val navController = findNavController()
 //        val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_main)
         setHasOptionsMenu(true)
-        //(activity as? AppCompatActivity)?.supportActionBar(toolbar)
+        (activity as? MainActivity)?.supportActionBar?.title = "Новости"
 
         //val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
+
 
         mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
 import androidx.navigation.fragment.findNavController
+import com.example.ontmobileapp.MainActivity
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.models.Global
@@ -41,6 +42,7 @@ class ScheduleFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val groupSpinner = root.findViewById<Spinner>(R.id.group_schedule_spinner)
         val dateSpinner = root.findViewById<Spinner>(R.id.date_schedule_spinner)
         val showBtn = root.findViewById<Button>(R.id.show_schedule_btn)
+        (activity as? MainActivity)?.supportActionBar?.title = "Расписание"
 
         val adapter =
             ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, groups)

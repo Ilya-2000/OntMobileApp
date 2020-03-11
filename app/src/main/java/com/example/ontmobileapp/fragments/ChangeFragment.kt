@@ -17,6 +17,7 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
+import com.example.ontmobileapp.MainActivity
 
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.models.Change
@@ -56,6 +57,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val selDateBtn = root.findViewById<Button>(R.id.change_btn)
         val dateText = root.findViewById<TextView>(R.id.date_text)
         val showChangeBtn = root.findViewById<Button>(R.id.show_change_btn)
+
 
         groups = Global.groupsGlobal
         dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()

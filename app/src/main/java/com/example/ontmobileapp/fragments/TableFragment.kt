@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager.widget.ViewPager
+import com.example.ontmobileapp.MainActivity
 import com.example.ontmobileapp.R
 import com.example.ontmobileapp.adapters.SchedulePagerAdapter
 import com.example.ontmobileapp.models.Global
@@ -31,6 +32,7 @@ class TableFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_table, container, false)
         groups = Global.groupsGlobal
+        (activity as? MainActivity)?.supportActionBar?.title = "Расписание"
 
 
         val viewPager = view.findViewById<ViewPager>(R.id.schedule_view_pager)
