@@ -29,6 +29,7 @@ class ShowChangeFragment : Fragment() {
         Log.d("ch", Global.changesList.size.toString())
         recyclerView.adapter = adapter
         Log.d("a", recyclerView.size.toString())
+        Log.d("list", Global.changesList.get(0).toString())
         return root
     }
 

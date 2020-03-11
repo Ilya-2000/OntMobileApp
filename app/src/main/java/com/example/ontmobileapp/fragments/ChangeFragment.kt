@@ -131,6 +131,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     change.teacher = jsonObject1.getString("teacher_kto")
                     change.group = jsonObject1.getString("gruppa")
                     change.lessonNum = jsonObject1.getString("para")
+                    change.subGroup = jsonObject1.getString("podgruppa")
                     changes.add(change)
 
                     i++
