@@ -12,24 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service
+            android:name=".services.FirstFirebaseInstanceService"
+            android:enabled="true"
+            android:exported="true"></service>
 
         <activity
-            android:name="com.impact.ontmobileapp.AboutActivity"
-            android:parentActivityName="com.impact.ontmobileapp.MainActivity" />
+            android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.impact.ontmobileapp.OpenNewsActivity"
-            android:parentActivityName="com.impact.ontmobileapp.MainActivity" />
+            android:name=".OpenNewsActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.impact.ontmobileapp.SettingsActivity"
-            android:parentActivityName="com.impact.ontmobileapp.MainActivity" />
-        <activity android:name="com.impact.ontmobileapp.SplashActivity">
+            android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.impact.ontmobileapp.MainActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
