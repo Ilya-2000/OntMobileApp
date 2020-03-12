@@ -6,7 +6,7 @@
     app:startDestination="@id/navigation_news">
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.example.ontmobileapp.fragments.NewsFragment"
+        android:name="com.impact.ontmobileapp.fragments.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -17,16 +17,16 @@
     </fragment>
     <activity
         android:id="@+id/openNewsActivity"
-        android:name="com.example.ontmobileapp.OpenNewsActivity"
+        android:name="com.impact.ontmobileapp.OpenNewsActivity"
         android:label="activity_open_news"
         tools:layout="@layout/activity_open_news" />
     <fragment
         android:id="@+id/navigation_tableFragment"
-        android:name="com.example.ontmobileapp.fragments.TableFragment"
+        android:name="com.impact.ontmobileapp.fragments.TableFragment"
         android:label="TableFragment" />
     <fragment
         android:id="@+id/scheduleFragment"
-        android:name="com.example.ontmobileapp.fragments.ScheduleFragment"
+        android:name="com.impact.ontmobileapp.fragments.ScheduleFragment"
         android:label="fragment_schedule"
         tools:layout="@layout/fragment_schedule" >
         <action
@@ -35,17 +35,17 @@
     </fragment>
     <fragment
         android:id="@+id/showScheduleFragment"
-        android:name="com.example.ontmobileapp.fragments.ShowScheduleFragment"
+        android:name="com.impact.ontmobileapp.fragments.ShowScheduleFragment"
         android:label="fragment_show_schedule"
         tools:layout="@layout/fragment_show_schedule" />
     <fragment
         android:id="@+id/navigation_college"
-        android:name="com.example.ontmobileapp.fragments.CollegeMainFragment"
+        android:name="com.impact.ontmobileapp.fragments.CollegeMainFragment"
         android:label="fragment_college_main"
         tools:layout="@layout/fragment_college_main" />
     <fragment
         android:id="@+id/changeFragment"
-        android:name="com.example.ontmobileapp.fragments.ChangeFragment"
+        android:name="com.impact.ontmobileapp.fragments.ChangeFragment"
         android:label="fragment_change"
         tools:layout="@layout/fragment_change" >
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/showChangeFragment"
-        android:name="com.example.ontmobileapp.fragments.ShowChangeFragment"
+        android:name="com.impact.ontmobileapp.fragments.ShowChangeFragment"
         android:label="fragment_show_change"
         tools:layout="@layout/fragment_show_change" />
 </navigation>

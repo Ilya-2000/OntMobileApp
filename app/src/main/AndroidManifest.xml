@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ontmobileapp">
+    package="com.impact.ontmobileapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,22 +14,22 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".AboutActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="com.impact.ontmobileapp.AboutActivity"
+            android:parentActivityName="com.impact.ontmobileapp.MainActivity" />
         <activity
-            android:name=".OpenNewsActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="com.impact.ontmobileapp.OpenNewsActivity"
+            android:parentActivityName="com.impact.ontmobileapp.MainActivity" />
         <activity
-            android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".SplashActivity">
+            android:name="com.impact.ontmobileapp.SettingsActivity"
+            android:parentActivityName="com.impact.ontmobileapp.MainActivity" />
+        <activity android:name="com.impact.ontmobileapp.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.impact.ontmobileapp.MainActivity" />
     </application>
 
 </manifest>
