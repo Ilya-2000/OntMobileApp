@@ -26,7 +26,7 @@ class FeedbackFragment : Fragment() {
         val nameText = root.findViewById<TextInputEditText>(R.id.name_feedback_text)
         val emailText = root.findViewById<TextInputEditText>(R.id.email_feedback_text)
         val messageText = root.findViewById<TextInputEditText>(R.id.message_feedback_text)
-        nameText.isEnabled = nameText.length() <= 20
+        val lastNameText = root.findViewById<TextInputEditText>(R.id.last_name_feedback_text)
         return root
     }
 
