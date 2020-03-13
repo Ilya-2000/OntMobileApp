@@ -106,7 +106,6 @@ class ScheduleFragment : Fragment(), AdapterView.OnItemSelectedListener {
         when(parent!!.id) {
             R.id.group_schedule_spinner -> {
                 groupSelect = groups.get(position).name.toString()
-                Toast.makeText(activity, groupSelect, Toast.LENGTH_LONG).show()
             }
             R.id.date_schedule_spinner -> {
                 dateSelect = dateList.get(position)

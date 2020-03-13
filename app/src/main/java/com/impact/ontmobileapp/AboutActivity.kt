@@ -1,5 +1,7 @@
 package com.impact.ontmobileapp
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,6 +18,10 @@ class AboutActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        linkVkBtn.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/ont56")))
+        }
 
     }
 }

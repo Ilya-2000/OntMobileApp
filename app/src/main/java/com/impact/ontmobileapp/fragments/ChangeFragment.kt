@@ -82,11 +82,15 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         showChangeBtn.setOnClickListener {
             getChangesSchedule("http://api.ontvkr.ru/izmenenia/search.php?s=$dateSelect&p=$groupSelect")
-            Global.changesList = changes
-            Log.d("change", changes.size.toString())
-            navController.navigate(R.id.showChangeFragment)
+            if (changes.isEmpty()) {
+                Toast.makeText(activity, "Нет данных",Toast.LENGTH_LONG).show()
+            } else {
+                Global.changesList = changes
+                Log.d("change", changes.size.toString())
+                navController.navigate(R.id.showChangeFragment)
+            }
+
             //getDialog(dateSelect!!,groupSelect!!)
-            var toast = Toast.makeText(activity!!,dateSelect + groupSelect, Toast.LENGTH_LONG).show()
         }
 
 
@@ -132,10 +136,13 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     i++
                 }
 
+            } else {
+                Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
     }
     /*private fun getDialog(date: String, group: String) {
         var dialog = Dialog(activity!!,R.style.MyTheme)
