@@ -37,7 +37,11 @@
         android:id="@+id/showScheduleFragment"
         android:name="com.impact.ontmobileapp.fragments.ShowScheduleFragment"
         android:label="fragment_show_schedule"
-        tools:layout="@layout/fragment_show_schedule" />
+        tools:layout="@layout/fragment_show_schedule" >
+        <action
+            android:id="@+id/action_showScheduleFragment_to_navigation_tableFragment"
+            app:destination="@id/navigation_tableFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_college"
         android:name="com.impact.ontmobileapp.fragments.CollegeMainFragment"
@@ -56,5 +60,9 @@
         android:id="@+id/showChangeFragment"
         android:name="com.impact.ontmobileapp.fragments.ShowChangeFragment"
         android:label="fragment_show_change"
-        tools:layout="@layout/fragment_show_change" />
+        tools:layout="@layout/fragment_show_change" >
+        <action
+            android:id="@+id/action_showChangeFragment_to_navigation_tableFragment"
+            app:destination="@id/navigation_tableFragment" />
+    </fragment>
 </navigation>

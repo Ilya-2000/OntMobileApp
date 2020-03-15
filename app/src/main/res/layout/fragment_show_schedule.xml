@@ -62,4 +62,19 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/close_schedule_fab"
+        style="@style/Widget.Design.FloatingActionButton"
+        android:background="@color/colorAccent"
+        android:backgroundTint="@color/colorAccent"
+        android:elevation="2dp"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="64dp"
+        android:clickable="true"
+        android:src="@drawable/ic_done_white_24dp"
+        android:focusable="true" />
+
 </FrameLayout>
