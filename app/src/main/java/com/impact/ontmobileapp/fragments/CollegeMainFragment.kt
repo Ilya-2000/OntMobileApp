@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
@@ -26,6 +27,11 @@ class CollegeMainFragment : Fragment() {
         val viewPager = root.findViewById<ViewPager>(R.id.college_vp)
         val tabLayout = root.findViewById<TabLayout>(R.id.tab_layout_college)
         (activity as? MainActivity)?.supportActionBar?.title = "О техникуме"
+
+
+
+
+
         if (viewPager != null) {
             val adapter = CollegeVpAdapter(childFragmentManager)
             viewPager.adapter = adapter
