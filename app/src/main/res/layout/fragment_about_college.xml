@@ -163,6 +163,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="?attr/actionBarSize"
                 android:text="понедельник–пятница с 8.00 до 16.30 \nобед с 12.00 до 12.30"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
