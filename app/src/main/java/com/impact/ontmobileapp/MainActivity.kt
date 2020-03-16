@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.impact.ontmobileapp.models.Global
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -21,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var toolbar: Toolbar = findViewById(R.id.toolbar_main)
+        //ar collapsingToolbarLayout: CollapsingToolbarLayout = findViewById(R.id.collapsing_layout_main)
         setSupportActionBar(toolbar)
+        //collapsingToolbarLayout.title = "Test"
 
 
         val sharedPreference = getSharedPreferences("settingsgroup", Context.MODE_PRIVATE)

@@ -42,7 +42,8 @@
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+       <!-- <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_layout_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
@@ -50,14 +51,14 @@
             app:collapsedTitleGravity="top|center_vertical"
             app:expandedTitleGravity="bottom|center_horizontal"
             app:expandedTitleMarginBottom="50dip"
-            app:layout_scrollFlags="scroll|snap">
+            app:layout_scrollFlags="scroll|snap"> -->
 
             <include
                 android:id="@+id/toolbar_main"
                 layout="@layout/toolbar_template"
                 />
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+       <!-- </com.google.android.material.appbar.CollapsingToolbarLayout>-->
     </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

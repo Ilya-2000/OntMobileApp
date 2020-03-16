@@ -4,6 +4,7 @@ package com.impact.ontmobileapp.fragments
 import android.os.Bundle
 import android.os.Handler
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,7 +40,7 @@ class NewsFragment : Fragment() {
 //        val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_main)
         setHasOptionsMenu(true)
         (activity as? MainActivity)?.supportActionBar?.title = "Новости"
-
+        Toast.makeText(activity, (activity as? MainActivity)?.supportActionBar?.title, Toast.LENGTH_LONG).show()
         //val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
 
 
