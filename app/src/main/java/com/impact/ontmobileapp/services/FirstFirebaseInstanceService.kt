@@ -10,6 +10,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import okhttp3.internal.Util
 import kotlin.random.Random
 import kotlin.random.Random.Default.nextInt
 
@@ -32,7 +33,7 @@ public class FirstFirebaseInstanceService : FirebaseMessagingService() {
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                 .setUsage(AudioAttributes.USAGE_ALARM)
                 .build()
-            notificationChannel.description = "Impact channel"
+            notificationChannel.description = "test"
             notificationChannel.enableLights(true)
             notificationChannel.lightColor = Color.BLUE
             notificationChannel.enableLights(true)
@@ -46,6 +47,8 @@ public class FirstFirebaseInstanceService : FirebaseMessagingService() {
         notificationBuilder.setAutoCancel(true)
             .setDefaults(Notification.DEFAULT_ALL)
             .setWhen(System.currentTimeMillis())
+            .setVibrate(longArrayOf(0,500,1000))
+            .setDefaults(Notification.DEFAULT_LIGHTS)
 
         notificationManager.notify(Random.nextInt(), notificationBuilder.build())
     }

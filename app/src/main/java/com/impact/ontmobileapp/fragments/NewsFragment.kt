@@ -40,7 +40,6 @@ class NewsFragment : Fragment() {
 //        val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_main)
         setHasOptionsMenu(true)
         (activity as? MainActivity)?.supportActionBar?.title = "Новости"
-        Toast.makeText(activity, (activity as? MainActivity)?.supportActionBar?.title, Toast.LENGTH_LONG).show()
         //val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
 
 
