@@ -44,11 +44,13 @@ public class FirstFirebaseInstanceService : FirebaseMessagingService() {
 
         var notificationBuilder: NotificationCompat.Builder = NotificationCompat.Builder(this, CHANNEL_ID)
 
-        notificationBuilder.setAutoCancel(true)
+        notificationBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setDefaults(Notification.DEFAULT_ALL)
             .setWhen(System.currentTimeMillis())
-            .setVibrate(longArrayOf(0,500,1000))
+            .setVibrate(longArrayOf(1000,500,1000))
             .setDefaults(Notification.DEFAULT_LIGHTS)
+
+
 
         notificationManager.notify(Random.nextInt(), notificationBuilder.build())
     }
