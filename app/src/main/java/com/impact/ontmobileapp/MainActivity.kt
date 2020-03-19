@@ -72,6 +72,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, AboutActivity::class.java))
 
             }
+            R.id.notification_menu_item -> {
+                startActivity(Intent(this, BreakingNewsActivity::class.java))
+            }
         }
         return super.onOptionsItemSelected(item)
     }
