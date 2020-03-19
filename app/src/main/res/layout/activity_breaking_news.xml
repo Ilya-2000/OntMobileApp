@@ -23,6 +23,15 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/breaking_news_rv"
             android:layout_width="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
             android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/empty_breaking_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:visibility="invisible"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Нет новых оповещений"/>
     </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
