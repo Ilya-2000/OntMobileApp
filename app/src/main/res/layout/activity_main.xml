@@ -36,6 +36,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_nav_bottom" />
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar_template"
+        />
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,10 +57,7 @@
             app:expandedTitleMarginBottom="50dip"
             app:layout_scrollFlags="scroll|snap"> -->
 
-            <include
-                android:id="@+id/toolbar_main"
-                layout="@layout/toolbar_template"
-                />
+
 
        <!-- </com.google.android.material.appbar.CollapsingToolbarLayout>-->
     </com.google.android.material.appbar.AppBarLayout>
