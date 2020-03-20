@@ -112,7 +112,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         groupSelect = groups.get(position).name.toString()
-        Toast.makeText(activity, groupSelect, Toast.LENGTH_LONG).show()
+
     }
 
     private fun getChangesSchedule(stringUrl: String) {
