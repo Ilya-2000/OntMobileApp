@@ -35,11 +35,18 @@ class ScheduleFragment : Fragment(), AdapterView.OnItemSelectedListener {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_schedule, container, false)
         groups = Global.groupsGlobal
+        val emptyText = root.findViewById<TextView>(R.id.empty_table_text)
         val navController = findNavController()
         val groupSpinner = root.findViewById<Spinner>(R.id.group_schedule_spinner)
         val dateSpinner = root.findViewById<Spinner>(R.id.date_schedule_spinner)
         val showBtn = root.findViewById<Button>(R.id.show_schedule_btn)
         (activity as? MainActivity)?.supportActionBar?.title = "Расписание"
+
+        if (groups.isEmpty()) {
+            emptyText.visibility = View.VISIBLE
+        } else {
+            emptyText.visibility = View.GONE
+        }
 
         val adapter =
             ArrayAdapter(activity!!, android.R.layout.simple_spinner_dropdown_item, groups)

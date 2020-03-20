@@ -4,6 +4,7 @@ package com.impact.ontmobileapp.fragments
 import android.os.Bundle
 import android.os.Handler
 import android.view.*
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -41,7 +42,7 @@ class NewsFragment : Fragment() {
         setHasOptionsMenu(true)
         (activity as? MainActivity)?.supportActionBar?.title = "Новости"
         //val toolbar:androidx.appcompat.widget.Toolbar = root.findViewById(R.id.toolbar_news)
-
+        val emptyText = root.findViewById<TextView>(R.id.empty_news_text)
 
         mHandler = Handler()
         val recyclerView: RecyclerView = root.findViewById(R.id.news_rv)
@@ -53,6 +54,12 @@ class NewsFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
         setRecyclerViewScrollListener(recyclerView)
+
+        if (listNews.isEmpty()) {
+            emptyText.visibility = View.VISIBLE
+        } else {
+            emptyText.visibility = View.GONE
+        }
 
 
 

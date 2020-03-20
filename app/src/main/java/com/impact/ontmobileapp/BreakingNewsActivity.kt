@@ -7,10 +7,14 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
+import com.impact.ontmobileapp.models.BreakingNews
+import kotlinx.android.synthetic.main.activity_breaking_news.view.*
 
 class BreakingNewsActivity : AppCompatActivity() {
+    private var breakingNewsList = mutableListOf<BreakingNews>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +25,14 @@ class BreakingNewsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "Уведомления"
         val recyclerView = findViewById<RecyclerView>(R.id.breaking_news_rv)
+        val emptyText = findViewById<TextView>(R.id.empty_breaking_text)
+
+        if (breakingNewsList.isEmpty()) {
+            emptyText.visibility = View.VISIBLE
+        } else {
+            emptyText.visibility = View.GONE
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

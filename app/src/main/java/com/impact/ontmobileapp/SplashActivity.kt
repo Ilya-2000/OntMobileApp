@@ -67,7 +67,7 @@ class SplashActivity : AppCompatActivity() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            val toast = Toast.makeText(this,e.message, Toast.LENGTH_LONG).show()
+            //val toast = Toast.makeText(this,e.message, Toast.LENGTH_LONG).show()
         }
 
     }

@@ -43,6 +43,7 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val root = inflater.inflate(R.layout.fragment_change, container, false)
         var cal: Calendar = Calendar.getInstance()
         val navController = findNavController()
+        val emptyText = root.findViewById<TextView>(R.id.empty_table_text)
         var year = cal.get(Calendar.YEAR)
         var month = cal.get(Calendar.MONTH)
         var day = cal.get(Calendar.DAY_OF_MONTH)
@@ -53,6 +54,13 @@ class ChangeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 
         groups = Global.groupsGlobal
+
+        if (groups.isEmpty()) {
+            emptyText.visibility = View.VISIBLE
+        } else {
+            emptyText.visibility = View.GONE
+        }
+
         dateSelect = year.toString() + "-" + (month + 1).toString() + "-" + day.toString()
         dateText.text = day.toString() + "." + (month + 1).toString() + "." + year.toString()
         val adapter =
